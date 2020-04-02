@@ -10,14 +10,44 @@ $context = context_system::instance();
 $PAGE->set_context($context);
 $PAGE->set_pagetype('site-index');
 $PAGE->set_pagelayout('standard');
-$PAGE->set_title("Library Resources - My Laurus Portal");
-$PAGE->navbar->add("Library Resources");
+$PAGE->set_title("Career Toolbox - My Laurus Portal");
+$PAGE->navbar->add("<a href='#'>Find a Job</a> / <a href='ct-test.php'>Articles</a>" );
 $PAGE->set_heading("Career Toolbox");
 $PAGE->set_url("/");
 echo $OUTPUT->header();
 ?>
 
+<style>
+	#region-main{
+		padding: 0;
+	}
 
+	.ct-navbar{
+		position:relative;
+	}
+
+
+	.ct-nav{
+		position:static;
+	}
+
+
+
+	@media screen and (max-width:768px){
+		.ct-nav{
+			background-color:#0D3C76;
+			position:absolute;
+			left: 0;
+			top:50px;
+			display:flex;
+			flex-direction:column;			
+			z-index:100;
+			width: 100%;
+		}
+
+	}
+
+</style>
 
 <?php 
 	$list = true;
@@ -30,13 +60,41 @@ echo $OUTPUT->header();
 ?>
 
 
+
+
 <div class="generalbox">
 
-	<div class='bg-primary mb-4'>
-		<a href="ct-test.php">Articles</a>
+
+<div class='py-2' style='background-color:#0D3C76;'>
+	<div class='container'>
+		<div class='d-flex justify-content-end ct-navbar'>
+			<div class='nav ct-nav' id='js-ct-nav'>		
+				<a class='nav-link white' href="#">Item 1</a>
+				<a class='nav-link active'  href="#">Item 2</a>
+				<a class='nav-link white'  href="#">Item 3</a>
+				<a class='nav-link white'  href="#">Item 4</a>		
+			</div>
+
+			<button class='btn btn-outline-light d-md-none' id='js-ct-menubtn'>
+				X3
+			</button>
+		</div>
+
 	</div>
 
-	<div class='container'>	
+</div>
+
+
+
+
+
+
+<div class='container'>	
+
+
+
+
+
 
 		<?php 
 			$data = file_get_contents('files/ct_files/json/articles.json');
@@ -72,8 +130,22 @@ echo $OUTPUT->header();
 			</div>
 			</div>
 		<?php endif; ?>
-	</div>
+
+
+
 </div>
+
+
+<script>
+	$('#js-ct-menubtn').click(function(){
+		$('#js-ct-nav').show();
+		
+	})
+
+
+
+</script>
+
 
 
 <?php
