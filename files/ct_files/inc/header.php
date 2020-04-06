@@ -11,7 +11,7 @@ $PAGE->set_context($context);
 $PAGE->set_pagetype('site-index');
 $PAGE->set_pagelayout('standard');
 $PAGE->set_title("Career Toolbox - My Laurus Portal");
-$PAGE->navbar->add("<a href='#'>Find a Job</a> / <a href='ct-test.php'>Articles</a>" );
+$PAGE->navbar->add("<a href='ct-jobs.php'>Find a Job</a>" );
 $PAGE->set_heading("Career Toolbox");
 $PAGE->set_url("/");
 echo $OUTPUT->header();
@@ -66,6 +66,7 @@ echo $OUTPUT->header();
 			display:none;
 		}
 
+	
 		.dropdown-wrapper{
 			display:none;
 		}
@@ -78,7 +79,7 @@ echo $OUTPUT->header();
 
 <div class='py-2 mb-4' style='background-color:#0D3C76;'>
 	<div class='container'>
-		<div class='ct-navbar'>
+		<div class='ct-navbar d-flex justify-content-between'>
 			<div class='nav ct-nav' id='js-ct-nav'>		
 				<a class='nav-link text-white' href="ct-welcome.php">Welcome</a>
 				<a class='nav-link text-white'  href="ct-jobs.php">Jobs</a>
@@ -93,6 +94,7 @@ echo $OUTPUT->header();
 				<a class='nav-link text-white' href='ct-calendar.php'>Calendar</a>
 				<a class='nav-link text-white'  href="ct-contact.php">Contact</a>		
 			</div>
+			<a href="ct-start.php" class='btn btn-warning btn-sm d-none d-lg-block start-btn'>Start Here</a>
 			<button class='btn btn-outline-light d-md-none' id='js-ct-menubtn'>
 				X
 			</button>

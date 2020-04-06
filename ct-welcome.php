@@ -4,6 +4,7 @@
 <div class='container'>	
 
 <div class='text-center'>
+
 	<h1>Your Career Services</h1>
 	<img src='https://via.placeholder.com/2400x1200' alt='' class='img-fluid mb-1'>
 	<p class='small'>The Laurus College staff and instructors are known to feel like family, and they're always ready to give you the support you need</p>
