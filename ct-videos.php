@@ -18,58 +18,19 @@
 
 <div class='container'>	
 
-
 		<?php 
 			$data = file_get_contents('files/ct_files/json/articles.json');
 			$articles = json_decode($data, true);		
 		?>
 
 
-		<?php if ($list): ?>		
-		<h2 class='h1 text-center sr-only'>Featured Articles</h2>
-		<div class='row'>
-
-		<div class='col-md d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-md d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-		
-		<div class='col-md d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-		</div>
-		
-		
-
-		<div class="row">
-
-
+		<?php if ($list): ?>
 		<h2 class="h1">Career Services Articles</h2>
-
-		
-
-
-		<?php foreach($articles as $key=>$article){ ?>	
+		<?php foreach($articles as $key=>$article){ ?>
+	
 			<div class='row mt-5 '>
-				<div class='col'>
+				<div class='col' style='max-width: 850px'>
+
 					<div class='media'>
 						<img src='https://via.placeholder.com/200x200' alt='' class="img-fluid mr-3 d-none d-md-block">
 						<div class='media-body'>

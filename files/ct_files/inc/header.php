@@ -74,17 +74,6 @@ echo $OUTPUT->header();
 
 </style>
 
-<?php 
-	$list = true;
-	$id = 0;
-
-	if (isset($_GET['id'])){
-		$id = $_GET['id'];
-		$list = false;
-	};
-?>
-
-
 <div class="generalbox">
 
 <div class='py-2 mb-4' style='background-color:#0D3C76;'>
@@ -101,6 +90,7 @@ echo $OUTPUT->header();
 						<a class='nav-link text-white' href="ct-stories.php">Grad Stories</a>
 					</div>
 				</div>
+				<a class='nav-link text-white' href='ct-calendar.php'>Calendar</a>
 				<a class='nav-link text-white'  href="ct-contact.php">Contact</a>		
 			</div>
 			<button class='btn btn-outline-light d-md-none' id='js-ct-menubtn'>
