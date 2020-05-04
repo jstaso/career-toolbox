@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Business Systems",
+    "fullname": "Professional Business Systems",
+    "id": "pbs",
+    "icon": "fas fa-briefcase"
+  },
+  {
+    "name": "Digital Arts",
+    "fullname": "Digital Arts & Computer Animation",
+    "id":"daca",
+    "icon": "fas fa-paint-brush"
+  },
+  {
+    "name": "IT & Networking",
+    "fullname": "Information Technologies and Network Systems",
+    "id":"it",
+    "icon": "fas fa-network-wired"
+  },
+  {
+    "name": "Medical Billing",
+    "fullname": "Medical Billing and Coding",
+    "id":"mbc",
+    "icon": "fas fa-laptop-medical"
+  },
+  {
+    "name": "Web Design",
+    "fullname": "Web Design and Development",    
+    "id": "wdd",
+    "icon": "fas fa-laptop-code"
+  }
+]

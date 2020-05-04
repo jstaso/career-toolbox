@@ -1,4 +1,5 @@
 
+
 <script>
 
 var menuOpen = false;
@@ -27,8 +28,12 @@ $(window).click(function(){
     $('.dropdown-wrapper').slideUp();
 })
 
-</script>
+$('tr[data-link').click(function(){
+	console.log('hey');
+	window.document.location = $(this).data("link")
+})
 
+</script> 
 
 
 <?php

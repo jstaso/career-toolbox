@@ -11,7 +11,7 @@ $PAGE->set_context($context);
 $PAGE->set_pagetype('site-index');
 $PAGE->set_pagelayout('standard');
 $PAGE->set_title("Career Toolbox - My Laurus Portal");
-$PAGE->navbar->add("<a href='#'>Find a Job</a> / <a href='ct-test.php'>Articles</a>" );
+$PAGE->navbar->add("" );
 $PAGE->set_heading("Career Toolbox");
 $PAGE->set_url("/");
 echo $OUTPUT->header();
@@ -26,6 +26,30 @@ echo $OUTPUT->header();
 
 		.ct-navbar{
 		position:relative;
+	}
+
+	.article p{
+		font-size: 1.4rem;
+		line-height: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.article li{
+		font-size: 1.4rem;		
+		line-height: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.article h2{
+		margin-top: 2rem;
+		line-height: 2rem;
+		font-size: 1.8rem;
+	}
+
+	.article h3{
+		margin-top: 1rem;
+		line-height: 2rem;
+		font-size: 1.5rem;
 	}
 
 
@@ -43,11 +67,15 @@ echo $OUTPUT->header();
 		position:absolute;
 		background-color:black;
 		top: 45px;
-		z-index: 100;
+		z-index: 1000;
 	}
 
 	.bg-royal{
 		background-color:#092240;
+	}
+
+	.text-royal{
+		color:#092240;
 	}
 
 
@@ -66,6 +94,7 @@ echo $OUTPUT->header();
 			display:none;
 		}
 
+	
 		.dropdown-wrapper{
 			display:none;
 		}
@@ -74,25 +103,30 @@ echo $OUTPUT->header();
 
 </style>
 
+
+<?php include('files/ct_files/components/components.php'); ?>
+
+
 <div class="generalbox">
 
 <div class='py-2 mb-4' style='background-color:#0D3C76;'>
 	<div class='container'>
-		<div class='ct-navbar'>
+		<div class='ct-navbar d-flex justify-content-between'>
 			<div class='nav ct-nav' id='js-ct-nav'>		
-				<a class='nav-link text-white' href="ct-welcome.php">Welcome</a>
-				<a class='nav-link text-white'  href="ct-jobs.php">Jobs</a>
+				<a class='nav-link text-white' href="career-toolbox.php?view=welcome">Welcome</a>
+				<a class='nav-link text-white'  href="career-toolbox.php?view=jobs">Jobs</a>
 				<div class='dropdown'>
 					<span class='nav-link text-white'>Resources <i class="fas fa-caret-down"></i></span>
 					<div class='dropdown-wrapper'>
-						<a class='nav-link text-white' href="ct-articles.php">Articles</a>
-						<a class='nav-link text-white' href="ct-videos.php">Videos</a>
-						<a class='nav-link text-white' href="ct-stories.php">Grad Stories</a>
+						<a class='nav-link text-white' href="career-toolbox.php?view=articles">Articles</a>
+						<a class='nav-link text-white' href="career-toolbox.php?view=videos">Videos</a>
+						<a class='nav-link text-white' href="career-toolbox.php?view=stories">Grad Stories</a>
 					</div>
 				</div>
-				<a class='nav-link text-white' href='ct-calendar.php'>Calendar</a>
-				<a class='nav-link text-white'  href="ct-contact.php">Contact</a>		
+				<a class='nav-link text-white' href='career-toolbox.php?view=calendar'>Calendar</a>
+				<a class='nav-link text-white'  href="career-toolbox.php?view=contact">Contact</a>		
 			</div>
+			<a href="ct-start.php" class='btn btn-warning btn-sm d-none d-lg-block start-btn'>Start Here</a>
 			<button class='btn btn-outline-light d-md-none' id='js-ct-menubtn'>
 				X
 			</button>

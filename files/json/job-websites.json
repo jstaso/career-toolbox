@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Indeed",
+        "url": "https://indeed.com",
+        "logo": "https://via.placeholder.com/50x50"
+    },
+    {
+        "name": "Career Builder",
+        "url": "https://www.careerbuilder.com/",
+        "logo": "https://via.placeholder.com/50x50"
+    },
+    {
+        "name": "Glassdoor",
+        "url": "https://www.glassdoor.com/",
+        "logo": "https://via.placeholder.com/50x50"
+    },
+    {
+        "name": "Dice",
+        "url": "https://www.dice.com/",
+        "logo": "https://via.placeholder.com/50x50"
+    },
+    {
+        "name": "Creative Heads",
+        "url": "https://www.creativeheads.net/",
+        "logo": "https://via.placeholder.com/50x50"
+    }
+
+]
