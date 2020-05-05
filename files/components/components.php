@@ -33,7 +33,7 @@
 
         <div class='media-body'>
             <<?php echo $vars['titleSize']; ?> class="m-0"><?php echo $vars['title']; ?></<?php echo $vars['titleSize']; ?>>
-            <p class="m-0 text-truncate" style='max-width:650px'><?php echo $vars['text']; ?></p>
+            <p class="m-0"><?php echo $vars['text']; ?></p>
             <?php if($vars['url']): ?>
                 <a class='stretched-link' href="<?php echo $vars['url'];?>"><?php echo $vars['linkText']; ?></a>
             <?php endif; ?>
@@ -307,81 +307,56 @@
 
 
 
-<?php /* GET WELCOME EVENTS */ ?>
+<?php /* GET EVENTS */ ?>
 <?php 
     function get_events($vars){ ob_start();    
         $data = file_get_contents('files/ct_files/json/events.json');
         $events = json_decode($data, true);
+        $currMonth = '';
+        $count = 0;
+        $maxCount = 1000;
+        if($vars['num']):
+            $maxCount = $vars['num'];
+        endif;
 ?>
-        <div class='row justify-content-center'>
-        <div class='col-xl-8'>
+    <div class='row justify-content-center'>
+    <div class='col col-xl-8'>
 <?php
-        foreach($events as $event):             
+    
+    
+    foreach($events as $event):        
+        if ($count < $maxCount):
+            $timeString = strtotime($event['startDate']);
+            $month = date('F', $timeString);             
+            $year = date('Y', $timeString); 
+            $day = date('j', $timeString);
+
+            $timeString = strtotime($event['endDate']);
+            $endMonth = date('F', $timeString);
+            $endDay = date('j', $timeString);
+            
+            if ($month != $currMonth):
+                echo "<h2 class='h3 mt-5 text-uppercase'>$month $year</h2>";
+                $currMonth = $month;
+            endif;
+
+            $text = "<p class='small mb-1'>$month $day - $endMonth $endDay</p><p>".$event['text']."</p>";
             echo get_media([
                 "icon" => "far fa-calendar-alt", 
                 "title" => $event['title'],  
                 "titleSize" => "h5",               
-                "text" => $event['text'], 
+                "text" => $text,
                 "url" => $event['url'], 
                 "linkText" => $event['linkText'] 
-            ]);         
-        endforeach;     
+            ]);   
+            $count++;    
+        endif;         
+    endforeach;
 ?>
     </div>
     </div>
-<?php
-    return ob_get_clean(); }; 
-?>
+<?php  return ob_get_clean(); }; ?>
 
-
-<?php function get_welcomeEvents($vars){ ob_start(); ?> 
-    <div class='row justify-content-center'>
-    <?php
-        $data = file_get_contents('files/ct_files/json/events.json');
-        $events = json_decode($data, true);
-    ?>
-        <div class='col-md-5 order-2 d-none d-lg-block'>		
-            <div class='text-center position-relative'>
-                <img src='<?php echo $events[0]['image']; ?>' class='img-fluid'>
-                <div>
-                    <h3 class="h5 m-0"><?php echo $events[0]['title']; ?></h3>
-                    <p class='m-0'><?php echo $events[0]['date']; ?></p>
-                    <p class='mt-2'><?php echo $events[0]['excerpt']; ?></p>					
-                    <a href="articles.php?id=0" class='btn btn-primary stretched-link'>Read More</a>					
-                </div>
-            </div>
-        </div>
-        <div class='col-xl-4 col-lg-5 col-md-8 mr-3 order-1'>	
-        <?php	
-            for($i=0; $i<=4; $i++): 
-            $event = $events[$i];
-            if($i==0):
-                echo "<div class='d-block d-lg-none'>";
-                echo get_media([
-                    "image" => $event['image'],
-                    "title" => $event['title'],
-                    "titleSize" => "h5",
-                    "imageSize" => "75",
-                    "text" => $event['date']."<br>".$event['text'],
-                    "url" => 'career-toolbox.php?view=calendar',
-                ]);
-                echo "</div>";
-            
-            elseif($event):
-               echo get_media([
-                    "image" => $event['image'],
-                    "title" => $event['title'],
-                    "titleSize" => "h5",
-                    "imageSize" => "75",
-                    "text" => $event['date']."<br>".$event['text'],
-                    "url" => 'career-toolbox.php?view=calendar',
-                ]);
-                endif; endfor; 
-        ?>
-        </div>	
-        
-    </div>	
-<?php return ob_get_clean(); }; ?>
 
 
 
@@ -406,7 +381,13 @@
 
 <div class='row'>
     <?php foreach($departments as $department): ?>
-    <div class='col-6 mb-2'>       
+
+    <?php if ($vars['size']=='wide'): ?>
+        <div class='col-md-6 mb-2'>     
+    <?php else: ?>
+        <div class='col-12 mb-2'>
+    <?php endif; ?>
+    
         <div class="btn btn-outline-light border text-left d-flex align-items-center rounded">
             <div class='d-inline-block bg-warning rounded mr-3 p-3 d-flex justify-content-center align-items-center'>
                 <span class="<?php echo $department['icon']; ?> text-white h3"></span>

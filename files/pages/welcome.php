@@ -20,7 +20,7 @@
 	<?php 
 		echo get_slab([
 			'title'=>'Jobs by Department', 
-			'content'=>get_departments(false)
+			'content'=>get_departments(['size'=>'wide'])
 		]); 
 	?>
 
@@ -34,7 +34,7 @@
 	<?php 
 		echo get_slab([
 			'title'=>'Career Events', 
-			'content'=>get_events(false)
+			'content'=>get_events(['num'=>3])
 		]); 
 	?>
 
