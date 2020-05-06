@@ -10,6 +10,8 @@
 
 
 <div class='container'>	
+		
+
 		<?php 
 			$data = 'test';
 			$data = file_get_contents('files/ct_files/json/articles.json');
@@ -17,19 +19,14 @@
 		?>
 
 
-		<?php if ($list): ?>		
-			<div class='jumbotron'>
-				<div class='col-lg-6 offset-lg-6 col-md-8 offset-md-4'>
-					<div class='jumbotron-text'>
-						<h2>Start Here!</h2>
-						<p>Not sure where to go first? Check out our article on how to get started!</p>
-						<a href='ct-start.php' class='btn btn-outline-warning'>Start Here</a>
-					</div>
-				</div>
-			</div>
-
-
-			<?php
+		<?php if ($list): 	?>
+			<h2 class="sr-only">Career Services Articles</h2>	
+		<?php echo get_jumbotron([
+					"title"=>"Featured Article", 
+					"content"=>"This is the featured article we're focusing on right now!",
+					"linkText"=>"Read Article",
+					"url"=>"career-toolbox.com?view=articles"
+				]);			
 			$count = 0;
 			foreach($articles as $key=>$article): 
 				if ($count==0): 	?>
@@ -52,7 +49,7 @@
 			<?php if ($count==3): ?>
 				</div>
 				<div class="row">
-				<h2 class="h1">All Career Services Articles</h2>
+				
 			<?php endif; ?>
 			
 			<?php if ($count >=3): ?>

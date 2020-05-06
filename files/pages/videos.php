@@ -12,10 +12,7 @@
 
 <div class='container'>	
 
-		<?php 
-			$data = file_get_contents('../json/articles.json');
-			$articles = json_decode($data, true);		
-		?>
+		
 
 
 	<div class='jumbotron'>
@@ -27,98 +24,27 @@
 		</div>
 	</div>
 
-	<h2>Video Channels</h2>
+
+	<?php 
+		$data = file_get_contents('files/ct_files/json/webinars.json');		
+		$webinars = json_decode($data, true);		
+	?>
+	
+	<h2>Career Services Webinars</h2>
 
 	<div class='row flex'>
-		
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
-
-		<div class='col-6 col-md-4 col-lg-3 d-flex mb-5 justify-content-center'>
-			<div class='card border'>
-				<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-				<div class='card-body bg-royal'>
-				<p class='text-uppercase text-white text-center'>Article Title</p>
-				</div>
-			</div>
-		</div>
+	<?php 
+		foreach($webinars as $webinar): 
+			echo get_featured_card([
+				'title' => $webinar['title'],
+				'url' => $webinar['url'],
+				'image' => $webinar['image'],
+				'icon' => "fas fa-video",
+				'excerpt' => $webinar['excerpt']
+			]);
+		endforeach; 
+	?>
+	</div>	
+	
 		
 </div>

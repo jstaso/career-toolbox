@@ -10,9 +10,6 @@
     <h1><?php echo $vars['title']; ?></h1>
 <?php return ob_get_clean(); }; ?>
 
-
-
-
 <?php 
     /** MEDIA COMPONENT 
      * Used in several other components
@@ -22,13 +19,13 @@
 ?>
 
 <?php function get_media($vars){ ob_start(); ?>
-    <div class='media position-relative border-top py-2'>
+    <div class='media position-relative py-2'>
         <?php if($vars['image']): ?>
         <img class="mr-3" src="<?php echo $vars['image']; ?>" width="<?php echo $vars['imageSize']; ?>px" alt="<?php echo $vars['title']; ?>">
         <?php endif; ?>
 
         <?php if($vars['icon']): ?>
-            <i class="far fa-calendar-alt mr-3 h1"></i>
+            <i class="h3 mr-3 <?php echo $vars['icon']; ?>"></i>
         <?php endif; ?>
 
         <div class='media-body'>
@@ -40,7 +37,6 @@
         </div>
     </div>
 <?php return ob_get_clean(); }; ?>
-
 
 
 <?php 
@@ -86,18 +82,90 @@
 ?>
 
 <?php function get_jumbotron($vars){ ob_start();?>
-    <div class='jumbotron py-5'>
-        <div class='col-lg-6 offset-lg-6 offset-lg-4 py-5'>
-            <div class='jumbotron-text'>
-                <h2 class='h1'><?php echo $vars['title']; ?></h2>
-                <p><?php echo $vars['content']; ?></p>
-                <?php if ($vars['url']): ?>
-                <a href='<?php echo $vars['url']; ?>' class='btn btn-outline-warning'><?php echo $vars['linkText']; ?></a>
-                <?php endif; ?>
+    <div class='jumbotron py-5' style='<?php if ($vars['bgImage']): echo 'background-image:url("'.$vars['bgImage'].'"); background-repeat:no-repeat; background-position:left top; height:300px;'; endif;?>'>
+        <div class='row justify-content-end'>           
+            <div class='col-xl-6 col-md-8 bg-royal p-3'>
+                <div class='jumbotron-text'>
+                    <h2 class='h1 text-warning'><?php echo $vars['title']; ?></h2>
+                    <p class='text-white'><?php echo $vars['content']; ?></p>
+                    <?php if ($vars['url']): ?>
+                    <a href='<?php echo $vars['url']; ?>' class='btn btn-outline-warning'><?php echo $vars['linkText']; ?></a>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
 <?php return ob_get_clean(); }; ?>
+
+
+
+<?php 
+    /** CAROUSEL COMPONENT 
+     * Used to create jumbotron
+     * Won't show button if you don't include url
+     * get_jumbotron(["title" => "", "content" => "", "url" => "", "linkText" => ""]);
+     * 
+    **/
+?>
+
+<?php function get_carousel($vars){ ob_start();?>
+
+    <div id="main-carousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <?php $first = true; ?>
+    <?php foreach ($vars['slides'] as $slide): ?>
+        <div class="carousel-item <?php echo $first; if($first): echo ' active'; $first=false; endif; ?>">
+            <?php echo $slide ?>
+        </div>    
+    <?php endforeach; ?>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+   
+<?php return ob_get_clean(); }; ?>
+
+
+<?php function get_featured_card($vars){ ob_start();?>
+
+    <div class='col-12 d-md-none py-3 border-top'>
+        <?php echo get_media([
+            "titleSize" => 'h6',
+            "title" => $vars['title'],
+            "text" => $vars['excerpt'],
+            "url" => $vars['url'],
+            "icon" => $vars['icon']
+        ]);?>        
+    </div>
+
+   
+    <div class='d-none col-md-4 d-md-flex mb-5 justify-content-center'>
+        <div class='card border position-relative'>
+            <img src='<?php echo $vars['image'];?>'' alt='' class='card-img-top'>
+            <div class='card-body bg-royal'>
+                <p class='text-uppercase text-white text-center'><?php echo $vars['title']; ?></p>					
+            </div>
+            <a href="<?php echo $vars['url']; ?>" class='stretched-link'></a>
+        </div>
+    </div>
+   
+<?php return ob_get_clean(); }; ?>
+
+
+
+
+
 
 
 <?php 

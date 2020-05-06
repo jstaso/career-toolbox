@@ -4,10 +4,8 @@
 
     <?php
 		echo get_jumbotron([
-			"title"=>"Start Here", 
-			"content"=>"Not sure where to go first? Check out our article on how to get started!",
-			"linkText"=>"Start here",
-			"url"=>"career-toolbox.com?view=articles&title=get-started"
+			"title"=>"Career Events", 
+			"content"=>"Upcoming events"			
 		]);
 	?>
 
