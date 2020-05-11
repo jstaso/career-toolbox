@@ -9,21 +9,21 @@
 					"content"=>"Not sure where to go first? Check out our article on how to get started!",
 					"linkText"=>"Start here",
 					"url"=>"career-toolbox.com?view=articles",
-					"bgImage"=> "files/ct_files/images/banners/where-to-start-banner.jpg"
+					"bgImage"=> "files/ct_files/images/banners/start-jumbotron.jpg"
 				]),
 				get_jumbotron([
-					"title"=>"Featured Article", 
-					"content"=>"This is the featured article we're focusing on right now!",
+					"title"=>"Interview Talking Points", 
+					"content"=>"Being given a job offer depends on the mistakes you avoid as much as the things that you do well.",
 					"linkText"=>"Read Article",
 					"url"=>"career-toolbox.com?view=articles",
-					"bgImage"=> "files/ct_files/images/webinars/customizing-your-resume-banner.jpg"
+					"bgImage"=> "files/ct_files/images/banners/article-jumbotron.jpg"
 				]),
 				get_jumbotron([
 					"title"=>"Customizing Your Resume", 
 					"content"=>"How to make necessary adjustments to your resume to land an interview.",
 					"linkText"=>"Watch Video",
 					"url"=>"https://laurus.adobeconnect.com/pkl0iuq7877f/?OWASP_CSRFTOKEN=bd6e2b0c322002fc5cf98d66cbc62b4a89a7edf94576de002691b65cb84294f6&proto=true",
-					"bgImage"=> "files/ct_files/images/webinars/customizing-your-resume-banner.jpg"
+					"bgImage"=> "files/ct_files/images/banners/webinar-jumbotron.jpg"
 				])
 			]
 		]);

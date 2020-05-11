@@ -19,7 +19,8 @@
 
     <?php
         echo get_jumbotron([
-            'title' => $department['fullname']
+            'title' => $department['fullname'],
+            'bgImage' => "files/ct_files/images/banners/".$department['id']."-jumbotron.jpg" 
         ]);
     ?>
 

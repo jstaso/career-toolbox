@@ -5,7 +5,8 @@
     <?php
 		echo get_jumbotron([
 			"title"=>"Career Events", 
-			"content"=>"Upcoming events"			
+			"content"=>"Upcoming events",
+			'bgImage'=>'files/ct_files/images/banners/events-jumbotron.jpg'			
 		]);
 	?>
 

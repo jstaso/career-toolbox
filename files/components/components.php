@@ -82,16 +82,23 @@
 ?>
 
 <?php function get_jumbotron($vars){ ob_start();?>
-    <div class='jumbotron py-5' style='<?php if ($vars['bgImage']): echo 'background-image:url("'.$vars['bgImage'].'"); background-repeat:no-repeat; background-position:left top; height:300px;'; endif;?>'>
-        <div class='row justify-content-end'>           
-            <div class='col-xl-6 col-md-8 bg-royal p-3'>
-                <div class='jumbotron-text'>
-                    <h2 class='h1 text-warning'><?php echo $vars['title']; ?></h2>
-                    <p class='text-white'><?php echo $vars['content']; ?></p>
-                    <?php if ($vars['url']): ?>
-                    <a href='<?php echo $vars['url']; ?>' class='btn btn-outline-warning'><?php echo $vars['linkText']; ?></a>
-                    <?php endif; ?>
-                </div>
+
+    <div class=' d-md-none text-center mb-4'>
+        <img src='<?php echo $vars['bgImage']; ?>' class='img-fluid'>
+
+        <h2 class='text-uppercase'><?php echo $vars['title']; ?></h2>
+        <p class=' border-bottom'><?php echo $vars['content']; ?></p>
+    </div>
+    
+    <div class="<?php if(!$vars['mobile']): echo 'd-none d-md-block'; endif; ?>" >
+        <div class='jumbotron d-flex align-items-center justify-content-end' style='<?php if ($vars['bgImage']): echo 'background-image:url("'.$vars['bgImage'].'"); background-repeat:no-repeat; background-position:left top; height:469px;'; endif;?>'>
+            
+            <div class='bg-royal p-3' >     
+                <h2 class='h1 text-warning'><?php echo $vars['title']; ?></h2>
+                <p class='text-white'><?php echo $vars['content']; ?></p>
+                <?php if ($vars['url']): ?>
+                <a href='<?php echo $vars['url']; ?>' class='btn btn-outline-warning'><?php echo $vars['linkText']; ?></a>
+                <?php endif; ?>                
             </div>
         </div>
     </div>

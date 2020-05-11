@@ -19,63 +19,42 @@
 		?>
 
 
-		<?php if ($list): 	?>
-			<h2 class="sr-only">Career Services Articles</h2>	
+		<?php if ($list): 	?>		
 		<?php echo get_jumbotron([
-					"title"=>"Featured Article", 
-					"content"=>"This is the featured article we're focusing on right now!",
+					"title"=>"Interview Talking Points", 
+					"content"=>"Being given a job offer depends on the mistakes you avoid as much as the things that you do well.",
 					"linkText"=>"Read Article",
+					'bgImage' => 'files/ct_files/images/banners/article-jumbotron.jpg',
 					"url"=>"career-toolbox.com?view=articles"
 				]);			
 			$count = 0;
-			foreach($articles as $key=>$article): 
-				if ($count==0): 	?>
-					<h2 class='h1 text-center sr-only'>Featured Articles</h2>
-					<div class='row'>
-				<?php endif; ?>
+		?>
 
-			<?php if ($count<3): ?>
-				<div class='col-md d-flex mb-5 justify-content-center'>
-					<div class='card border'>
-						<img src='https://via.placeholder.com/600x400' alt='' class='card-img-top'>
-						<div class='card-body bg-royal'>
-						<p class='text-uppercase text-white text-center'><?php echo $article['title'] ?></p>
-						<a href="career-toolbox.php?view=articles&id=<?php echo $key; ?>" class="stretched-link"></a>
-						</div>
-					</div>
-				</div>
-			<?php endif; ?>
 
-			<?php if ($count==3): ?>
-				</div>
-				<div class="row">
-				
-			<?php endif; ?>
-			
-			<?php if ($count >=3): ?>
-				
-				<div class='row mt-5 '>
-					<div class='col'>
+		<h2 class='display-4 my-4 d-none d-md-block '>Career Services Articles</h2>
+		<?php foreach($articles as $key=>$article): ?>				
+				<div class='row py-3 mx-1 border-top'>
+					<div class='col-xl-9 col-lg-11 col-md'>
 						<div class='media'>
-							<img src='https://via.placeholder.com/200x200' alt='' class="img-fluid mr-3 d-none d-md-block">
+							<img src='<?php echo $article['image']; ?>' alt='' class="img-fluid mr-4 d-none d-md-block" width="275">
 							<div class='media-body'>
-								<img src="https://via.placeholder.com/1024x512" alt='' class='img-fluid mb-2 d-md-none'>
-								<h2><?php echo $article['title']; ?></h2>
+								<img src="<?php echo $article['image']; ?>" alt='' class='img-fluid mb-2 d-md-none'>
+								<h2 class='h3'><?php echo $article['title']; ?></h2>
 								<div><?php echo $article['excerpt']; ?></div>
 								<div class='text-right'><button class='btn btn-link'>Read more -></button></div>
 							</div>
 						</div>
-
 						<a href="career-toolbox.php?view=articles&id=<?php echo $key; ?>" class="stretched-link"></a>
 					</div>			
 				</div>
 
-		<?php endif; $count++; endforeach; endif; ?>
+		<?php endforeach; endif; ?>
 
 		<?php if (!$list): $article = $articles[$id]; ?>
 			<div class='row justify-content-center'>
 			<div class='col col-xl-10 article'>
-				<img src='<?php echo $article['banner']; ?>' alt='' class="img-fluid">			
+				<img src='<?php echo $article['banner']; ?>' alt='' class="img-fluid mb-4">	
+				<h1 class='display-4 text-center text-uppercase'><?php echo $article['title']; ?></h1>
 				<?php echo file_get_contents("files/ct_files/articles/".$article['filename'].".html"); ?>
 			</div>
 			</div>

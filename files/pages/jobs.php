@@ -3,7 +3,8 @@
 	<?php
 		echo get_jumbotron([
 			"title"=>"Find a Job", 
-			"content"=>"See our list of jobs hand-selected by the career services department"
+			"content"=>"Select your department for a list of jobs hand-selected by the career services department",
+			"bgImage" =>"files/ct_files/images/banners/start-alt-jumbotron.jpg"
 		]);
 	?>
 	<div class='row justify-content-center'>

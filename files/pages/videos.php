@@ -12,19 +12,16 @@
 
 <div class='container'>	
 
-		
+<?php
+		echo get_jumbotron([
+			"title"=>"Video Resources", 
+			"content"=>"Webinars and videos from the Career Services department.",
+			"bgImage" =>"files/ct_files/images/banners/video-jumbotron.jpg",
+			"mobile" => false
+		]);
+	?>
 
-
-	<div class='jumbotron'>
-		<div class='col-lg-6 offset-lg-6 col-md-8 offset-md-4'>
-			<div class='jumbotron-text'>
-				<h2>Video Resources</h2>
-				<p>We've got videos for all your career services needs.</p>				
-			</div>
-		</div>
-	</div>
-
-
+	
 	<?php 
 		$data = file_get_contents('files/ct_files/json/webinars.json');		
 		$webinars = json_decode($data, true);		
